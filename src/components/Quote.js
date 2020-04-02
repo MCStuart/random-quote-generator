@@ -14,10 +14,6 @@ const Quote = () => {
   const [quoteText, setQuoteText] = useState('');
   const [quoteAuthor, setQuoteAuthor] = useState('');
 
-  const onClick = () => (
-    console.log("Button has been clicked")
-  )
-
   const fetchQuote = async () => {
     const res = await fetch('http://quotes.stormconsultancy.co.uk/random.json');
     const data = await res.json();
