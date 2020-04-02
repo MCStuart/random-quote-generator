@@ -13,13 +13,14 @@ const Quote = () => {
 
   const fetchQuote = async () => {
     const res = await fetch('http://quotes.stormconsultancy.co.uk/random.json');
-    const data = res.json()
-    setTimeout( () => {
-        console.log(res)
-        console.log(data)
-      }, 
-    5000);
+    const data = await res.json();
+    setQuoteText(data.quote);
+    setQuoteAuthor(data.author);
   };
+
+  useEffect(() => {
+    fetchQuote();
+  }, [])
 
   return (
     <div id='quote-box'>
