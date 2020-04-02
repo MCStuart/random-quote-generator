@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Quote = () => {
 
-  const [hasError, setHasError] = useState(false);
   const [quoteText, setQuoteText] = useState('');
   const [quoteAuthor, setQuoteAuthor] = useState('');
 
@@ -25,8 +24,8 @@ const Quote = () => {
   return (
     <div id='quote-box'>
       <h3 id='text'>{quoteText}</h3>
-      <p id='author'>{quoteAuthor}</p>
-      <a id='tweet-quote' href='twitter.com/intent/tweet'>Twitter</a>
+      <p id='author'>-{quoteAuthor}</p>
+      <a id='tweet-quote' href={`https://twitter.com/intent/tweet?via=rtn_undef&text="${encodeURI(quoteText)}" -${quoteAuthor}&hashtags=100DaysOfCode,Quote,QuoteMachine`}>Twitter</a>
       <button id='new-quote' onClick={fetchQuote}>New Quote</button>
     </div>
   )
