@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const Grid = styled.div`
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: lightblue;
   background-size: stretch;
 
