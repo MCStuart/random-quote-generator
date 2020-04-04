@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import twitterLogo from '../assets/twitter-circle-logo.png';
 
 const QuoteBoxDiv = styled.div`
   grid-column: 2;
@@ -7,7 +8,7 @@ const QuoteBoxDiv = styled.div`
   outline: 3px solid grey;
   padding: 1rem;
   background-color: white;
-  max-height: 300px;
+  // max-height: 300px;
   position: relative
 `;
 
@@ -20,10 +21,13 @@ const QuoteButtons = styled.div`
 
 const Button = styled.button`
   right: 0;
+  bottom: 0;
+  border-radius: 15%;
+  height: 80%
 `;
 
 const A = styled.a`
-  // float: left;
+  left: 0;
 `;
 
 const Quote = () => {
@@ -45,10 +49,12 @@ const Quote = () => {
   return (
     <QuoteBoxDiv>
       <div id='quote-box' style={{height: '95%', position: 'relative'}}>
-        <h3 id='text'>{quoteText}</h3>
-        <p id='author' style={{float: 'right'}}>-{quoteAuthor}</p>
+        <div>
+          <h3 id='text'>{quoteText}</h3>
+          <p id='author' style={{float: 'right'}}>-{quoteAuthor}</p>
+        </div>
         <QuoteButtons id="button-box" style={{width: '100%'}}>
-          <A id='tweet-quote' href={`https://twitter.com/intent/tweet?via=rtn_undef&text="${encodeURI(quoteText)}" -${quoteAuthor}&hashtags=100DaysOfCode,Quote,QuoteMachine`}>Twitter</A>
+          <A id='tweet-quote' href={`https://twitter.com/intent/tweet?via=rtn_undef&text="${encodeURI(quoteText)}" -${quoteAuthor}&hashtags=100DaysOfCode,Quote,QuoteMachine`}><img src={twitterLogo} alt='Twitter'></img></A>
           <Button id='new-quote' onClick={fetchQuote}>New Quote</Button>
         </QuoteButtons>
       </div>
