@@ -8,19 +8,22 @@ const QuoteBoxDiv = styled.div`
   padding: 1rem;
   background-color: white;
   max-height: 300px;
+  position: relative
 `;
 
 const QuoteButtons = styled.div`
-  
-  vertical-align: bottom;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
 `;
 
 const Button = styled.button`
-  float: right;
+  right: 0;
 `;
 
 const A = styled.a`
-  float: left;
+  // float: left;
 `;
 
 const Quote = () => {
@@ -41,10 +44,10 @@ const Quote = () => {
 
   return (
     <QuoteBoxDiv>
-      <div id='quote-box'>
+      <div id='quote-box' style={{height: '95%', position: 'relative'}}>
         <h3 id='text'>{quoteText}</h3>
-        <p id='author'>-{quoteAuthor}</p>
-        <QuoteButtons>
+        <p id='author' style={{float: 'right'}}>-{quoteAuthor}</p>
+        <QuoteButtons id="button-box" style={{width: '100%'}}>
           <A id='tweet-quote' href={`https://twitter.com/intent/tweet?via=rtn_undef&text="${encodeURI(quoteText)}" -${quoteAuthor}&hashtags=100DaysOfCode,Quote,QuoteMachine`}>Twitter</A>
           <Button id='new-quote' onClick={fetchQuote}>New Quote</Button>
         </QuoteButtons>
