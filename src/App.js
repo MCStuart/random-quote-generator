@@ -8,8 +8,6 @@ const Grid = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: lightblue;
-  background-size: stretch;
-
 `;
 
 const App = () => (
